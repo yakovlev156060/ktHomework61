@@ -47,10 +47,11 @@ public data class Post(
     val markedAsAds: Boolean,
     val isFavorite: Boolean,
     val donut: Donut,
-    val postponedId: Int
+    val postponedId: Int,
+    val attachments: Array<Attachment>?
 ){
     private var nextId:Int=0
-    private var attachments = emptyArray<Attachment>()
+
 }
 
 interface Attachment{
@@ -59,6 +60,7 @@ interface Attachment{
 
 public class AudioAttachment(
     override val type:String = "Audio",
+    val audio: Audio=Audio(),
     val id: Int,
     val ownerId: Int,
     val artist:String,
@@ -76,6 +78,7 @@ public class AudioAttachment(
 
 public class PhotoAttachment(
     override val type:String = "Photo",
+    val photo: Photo=Photo(),
     val id: Int,
     val albumId: Int,
     val userId: Int,
@@ -88,6 +91,7 @@ public class PhotoAttachment(
 
 public class PostedPhotoAttachment(
     override val type:String = "PostedPhoto",
+    val postedPhoto: PostedPhoto=PostedPhoto(),
     val id: Int,
     val ownerId: Int,
     val photo_130:String,
@@ -97,6 +101,7 @@ public class PostedPhotoAttachment(
 
 public class WikiPageAttachment(
     override val type:String = "WikiPage",
+    val wikiPage: WikiPage=WikiPage(),
     val id: Int,
     val groupId: Int,
     val title:String
@@ -105,6 +110,7 @@ public class WikiPageAttachment(
 
 public class NoteAttachment(
     override val type:String = "Note",
+    val note: Note=Note(),
     val id: Int,
     val ownerId: Int,
     val title:String,
@@ -120,6 +126,25 @@ public class NoteAttachment(
 ):Attachment{
 }
 
+public class Audio(){
+
+}
+
+public class Photo(){
+
+}
+
+public class PostedPhoto(){
+
+}
+
+public class WikiPage(){
+
+}
+
+public class Note(){
+
+}
 public data class Comments(
     val count: Int = 0,
     val canPost: Boolean = true,

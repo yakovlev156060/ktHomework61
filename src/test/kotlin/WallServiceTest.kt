@@ -11,7 +11,7 @@ class WallServiceTest {
         val testPost= Post(0,0,0,0,0,"",
             0,0,false,Comments(),Copyright(),
             Likes(),Reposts(),Views(),"post",0,emptyArray<Post>(),
-            false,false,false,0,false,false,Donut(),0)
+            false,false,false,0,false,false,Donut(),0,null)
         val rezult=add(testPost)
         assertTrue(rezult.id!=0)
     }
@@ -21,7 +21,7 @@ class WallServiceTest {
         val testPost= Post(0,0,0,0,0,"",
             0,0,false,Comments(),Copyright(),
             Likes(),Reposts(),Views(),"post",0,emptyArray<Post>(),
-            false,false,false,0,false,false,Donut(),0)
+            false,false,false,0,false,false,Donut(),0,null)
 
         val rezult=update(testPost)
         assertFalse(rezult)
@@ -34,7 +34,7 @@ class WallServiceTest {
         val testPost2= Post(4,0,0,0,0,"",
             0,0,false,Comments(),Copyright(),
             Likes(),Reposts(),Views(),"post",0,emptyArray<Post>(),
-            false,false,false,0,false,false,Donut(),0)
+            false,false,false,0,false,false,Donut(),0,null)
 
         val rezult=update(testPost2)
         assertFalse(rezult)
